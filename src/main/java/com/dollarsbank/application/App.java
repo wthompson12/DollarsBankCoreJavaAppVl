@@ -1,9 +1,12 @@
 package com.dollarsbank.application;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.dollarsbank.model.Account;
+import com.dollarsbank.controller.DollarsBankController;
+import com.dollarsbank.model.Customer;
 
 /**
  * Hello world!
@@ -12,17 +15,18 @@ import com.dollarsbank.model.Account;
 public class App {
 	
 	// Required objects
-	static ArrayList<Account> accounts = new ArrayList();
+	List<Customer>customers = new ArrayList<Customer>();
+	//static ArrayList<Account> accounts = new ArrayList();
 	static Scanner s = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		int n = 0;
 		// Greetings
 		System.out.println("===================================");
-		System.out.println("WELCOME TO ABC BANK");
+		System.out.println("DOLLARSBANK Welcomes You!");
 		System.out.println("===================================");
 		// Menu
-		System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
+		System.out.println("1. Create an account \n2. Login\n3. Exit");
 		// Loops till user wants to quit
 		while (n != 5) {
 			// Reads user options from menu
@@ -194,7 +198,7 @@ public class App {
 			}
 		} else {
 			System.out.println("No bank accounts available.");
-			System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
+			//System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 		}
 	}
 }
