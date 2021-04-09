@@ -8,38 +8,38 @@ import java.util.Locale;
 public class Account {
 
 	// Class member variables
-	public long accountNo;
-	String accountHolder;
+	public long accountNumber;
+	//String accountHolder;
 	double balance = 0;
 
 	// Parameterised Constructor
-	public Account(long accountNo, String accountHolder) {
-		this.accountNo = accountNo;
-		this.accountHolder = accountHolder;
+	public Account(long accountNumber) {
+		this.accountNumber = accountNumber;
+		//this.accountHolder = accountHolder;
 		this.balance = 0.0;
 	}
 
 	// Getters
-	public long getAccountNo() {
-		return accountNo;
+	public long getAccountNumber() {
+		return accountNumber;
 	}
 
-	public String getAccountHolder() {
-		return accountHolder;
-	}
+//	public String getAccountHolder() {
+//		return accountHolder;
+//	}
 
 	public double getBalance() {
 		return balance;
 	}
 
 	// Setters
-	public void setAccountNo(long accountNo) {
-		this.accountNo = accountNo;
+	public void setAccountNo(long accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
-	public void setAccountHolder(String accountHolder) {
-		this.accountHolder = accountHolder;
-	}
+//	public void setAccountHolder(String accountHolder) {
+//		this.accountHolder = accountHolder;
+//	}
 
 	public void setBalance(double balance) {
 		this.balance = balance;
@@ -57,7 +57,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return String.format("%-20s : %d\n%-20s : %s\n%-20s : %.2f\n", "Account No. ", accountNo, "Account Holder ",
-				accountHolder, "Balance ", balance);
+		return "Account [accountNumber=" + accountNumber + ", balance=" + balance + "]";
 	}
+
+	
 }

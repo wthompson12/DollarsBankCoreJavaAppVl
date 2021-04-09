@@ -16,7 +16,7 @@ public class App {
 	
 	// Required objects
 	List<Customer>customers = new ArrayList<Customer>();
-	static ArrayList<Account> accounts = new ArrayList();
+	static ArrayList<Account> accounts = new ArrayList<Account>();
 	static Scanner s = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -59,17 +59,17 @@ public class App {
 	// Implementation of createAccount
 	public static void createAccount() {
 		// Required variables
-		long accountNo;
+		long accountNumber;
 		String name, ignore;
 		boolean exists = false;
 		// Reads account number
-		System.out.print("Enter account No. : ");
-		accountNo = s.nextLong();
+		System.out.print("Enter account Number. : ");
+		accountNumber = s.nextLong();
 		// Validates account number
-		while (String.valueOf(accountNo).length() != 6 || accountNo < 0) {
+		while (String.valueOf(accountNumber).length() != 6 || accountNumber < 0) {
 			System.out.println("Account Number should be a six digit positve value.");
-			System.out.print("Enter account No. : ");
-			accountNo = s.nextLong();
+			System.out.print("Enter account Number. : ");
+			accountNumber = s.nextLong();
 		}
 		// Reads account holder name
 		System.out.print("Enter account holder name : ");
@@ -78,7 +78,7 @@ public class App {
 		// Checks if the account with given number already exists
 		if (accounts.size() > 0) {
 			for (Account a : accounts) {
-				if (a.accountNo == accountNo) {
+				if (a.accountNumber == accountNumber) {
 					exists = true;
 					System.out.println("Account already exists");
 					System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
@@ -86,12 +86,12 @@ public class App {
 			}
 			if (!exists) {
 				// If the account does not exist befor creates account
-				accounts.add(new Account(accountNo, name));
+				accounts.add(new Account(accountNumber));
 				System.out.println("\nAccount created successfully");
 				System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 			}
 		} else {
-			accounts.add(new Account(accountNo, name));
+			accounts.add(new Account(accountNumber));
 			System.out.println("\nAccount created successfully");
 			System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 		}
@@ -101,15 +101,15 @@ public class App {
 	public static void depositMoney() {
 		// Required variables
 		double amount;
-		long accountNo;
+		long accountNumber;
 		boolean exists = false;
 		if (accounts.size() > 0) {
 			// Reads account number
-			System.out.print("Enter account No. : ");
-			accountNo = s.nextLong();
+			System.out.print("Enter account Number. : ");
+			accountNumber = s.nextLong();
 			for (Account a : accounts) {
 				// Checks if the account exists
-				if (a.accountNo == accountNo) {
+				if (a.accountNumber == accountNumber) {
 					exists = true;
 					// Reads amount to deposit
 					System.out.print("Enter amount to deposit : ");
@@ -126,11 +126,11 @@ public class App {
 				}
 			}
 			if (!exists) {
-				System.out.println("Account with number " + accountNo + " does not exists.");
+				System.out.println("Account with number " + accountNumber + " does not exists.");
 				System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 			}
 		} else {
-			System.out.println("No bank accounts available.");
+			System.out.println("Number bank accounts available.");
 			System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 		}
 	}
@@ -138,16 +138,16 @@ public class App {
 	// Implementaton of withdrawMoney
 	public static void withdrawMoney() {
 		double amount;
-		long accountNo;
+		long accountNumber;
 		double balance;
 		boolean exists = false;
 		if (accounts.size() > 0) {
 			// Reads account number
-			System.out.print("Enter account No. : ");
-			accountNo = s.nextLong();
+			System.out.print("Enter account Number. : ");
+			accountNumber = s.nextLong();
 			for (Account a : accounts) {
 				// Checks if the account exists
-				if (a.accountNo == accountNo) {
+				if (a.accountNumber == accountNumber) {
 					exists = true;
 					// Reads amount to withdraw
 					System.out.print("Enter amount to withdraw : ");
@@ -166,26 +166,26 @@ public class App {
 				}
 			}
 			if (!exists) {
-				System.out.println("Account with number " + accountNo + " does not exists.");
+				System.out.println("Account with number " + accountNumber + " does not exists.");
 				System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 			}
 		} else {
-			System.out.println("No bank accounts available.");
+			System.out.println("Number bank accounts available.");
 			System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 		}
 	}
 
 	// Implemntation of checkBalance
 	public static void checkBalance() {
-		long accountNo;
+		long accountNumber;
 		boolean exists = false;
 		if (accounts.size() > 0) {
 			// Reads account number
-			System.out.print("Enter account No. : ");
-			accountNo = s.nextLong();
+			System.out.print("Enter account Number. : ");
+			accountNumber = s.nextLong();
 			for (Account a : accounts) {
 				// Checks if the account exists
-				if (a.accountNo == accountNo) {
+				if (a.accountNumber == accountNumber) {
 					exists = true;
 					System.out.println("============================================");
 					System.out.println(a);
@@ -193,11 +193,11 @@ public class App {
 				}
 			}
 			if (!exists) {
-				System.out.println("Account with number " + accountNo + " does not exists.");
+				System.out.println("Account with number " + accountNumber + " does not exists.");
 				System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 			}
 		} else {
-			System.out.println("No bank accounts available.");
+			System.out.println("Number bank accounts available.");
 			//System.out.println("1. Create an account.\n2. Deposit money.\n3. Withdraw money.\n4. Check Balance.\n5. Quit");
 		}
 	}
