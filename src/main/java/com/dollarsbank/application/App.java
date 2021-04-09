@@ -16,7 +16,7 @@ public class App {
 	
 	// Required objects
 	List<Customer>customers = new ArrayList<Customer>();
-	//static ArrayList<Account> accounts = new ArrayList();
+	static ArrayList<Account> accounts = new ArrayList();
 	static Scanner s = new Scanner(System.in);
 
 	public static void main(String[] args) {

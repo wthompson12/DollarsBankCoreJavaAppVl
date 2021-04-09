@@ -73,6 +73,12 @@ public class Customer {
 	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", address=" + address + ", contactNumber=" + contactNumber + ", userId="
+				+ userId + ", password=" + password + ", accounts=" + accounts + "]";
+	}
 	
 	
 
