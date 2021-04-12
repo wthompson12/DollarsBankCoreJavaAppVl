@@ -102,6 +102,10 @@ public class Customer {
 	public void withdraw(double money) {
 		this.balance -= money;
 	}
+	
+	public void transfer(double money) {
+		this.balance -= money;
+	}
 
 	@Override
 	public String toString() {

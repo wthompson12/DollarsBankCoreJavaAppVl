@@ -87,7 +87,7 @@ public class DollarsBankController {
 				if (customer.getUserId().equals(userId) && customer.getPassword().equals(password)) {
 					while (n != 5) {
 						System.out.print(ColorsUtility.ANSI_GREEN + "\n Make your selection : " + ColorsUtility.ANSI_RESET);
-						System.out.println(ColorsUtility.ANSI_BLACK + "\n1. Deposit \n2. Withdraw \n3. Check Balance \n4. Sign Out" + ColorsUtility.ANSI_RESET);
+						System.out.println(ColorsUtility.ANSI_BLACK + "\n1. Deposit \n2. Withdraw \n3. Check Balance \n4. Transfer \n5. Sign Out" + ColorsUtility.ANSI_RESET);
 						n = s.nextInt();
 
 						switch (n) {
@@ -101,6 +101,9 @@ public class DollarsBankController {
 							customerInfo();
 							break;
 						case 4:
+							transfer();
+							break;
+						case 5:
 							App.main(null);
 							break;
 						default:
@@ -189,6 +192,41 @@ public class DollarsBankController {
 					System.out.println("--------------------------");
 					System.out.println(ColorsUtility.ANSI_BLACK + customer + ColorsUtility.ANSI_RESET);
 					System.out.println("--------------------------");
+				}
+			}
+			if (!exists) {
+				System.out.println(ColorsUtility.ANSI_RED + "Account with number " + accountNumber + " does not exists." + ColorsUtility.ANSI_RESET);
+			}
+		} else {
+			System.out.println(ColorsUtility.ANSI_BLACK + "Number bank accounts available." + ColorsUtility.ANSI_RESET);
+		}
+	}
+	
+	public static void transfer() {
+		double amount;
+		long accountNumber;
+		double balance;
+		boolean exists = false;
+		if (customers.size() > 0) {
+			System.out.print(ColorsUtility.ANSI_BLACK + "Enter account Number. : " + ColorsUtility.ANSI_RESET);
+			accountNumber = s.nextLong();
+			for (Customer customer : customers) {
+				if (customer.accountNumber == accountNumber) {
+					exists = true;
+					balance = customer.getBalance();
+					System.out.print(ColorsUtility.ANSI_BLACK + "Enter transfer account : " + ColorsUtility.ANSI_RESET);
+					accountNumber = s.nextLong();
+					System.out.print(ColorsUtility.ANSI_BLACK + "Enter transfer amount : " + ColorsUtility.ANSI_RESET);
+					amount = s.nextDouble();
+					balance = customer.getBalance();
+					customer.transfer(amount);
+					if (amount > balance) {
+						System.out.println(ColorsUtility.ANSI_RED + "You don't have enough balance." + ColorsUtility.ANSI_RESET);
+					} else {
+						amount += customer.accountNumber;
+						System.out.println(ColorsUtility.ANSI_CYAN + "Amount transferred successfully" + ColorsUtility.ANSI_RESET);
+						break;
+					}
 				}
 			}
 			if (!exists) {
